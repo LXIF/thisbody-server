@@ -3,6 +3,7 @@
 const serveStatic = require('serve-static');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 // app.use(express.static("public"));
 
 // app.get('', (req, res) => {
