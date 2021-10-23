@@ -8,6 +8,8 @@ const app = express();
 // app.get('', (req, res) => {
 //     res.sendFile("index.html")
 // });
+app.use(cors());
+app.options('*', cors());
 
 var history = require('connect-history-api-fallback');
 
@@ -24,7 +26,7 @@ const io = require('socket.io')(http, {
 
 io.on('connection', (socket) => {
 
-    //handshakeish
+
 
     socket.on('howdy', (message) => {
 
@@ -32,7 +34,7 @@ io.on('connection', (socket) => {
 
     });
 
-    //local presence
+
 
     socket.on('breath', (breath) => {
         socket.broadcast.emit('breath', breath);
